@@ -22,7 +22,8 @@ router.post('/login', async (req, res, next) => {
     // pull u/p from req.body
     // pull the username from the db by that username
     // { username: 'foo', password: 'xxxxxxxxxxx' }
-    // server recreates hash from req.body.password // 
+    // server recreates hash from req.body.password // xxxxxxxxxxx
+    // server compares "recreated" against the one in db
     res.json('login!!!')
   } catch (err) {
     next(err)
