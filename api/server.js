@@ -11,7 +11,10 @@ server.use(express.static(path.join(__dirname, '../client')))
 server.use(express.json())
 server.use(session({
   name: 'monkey',
-  secret: process.env.SECRET || 'keep it secret'
+  secret: process.env.SECRET || 'keep it secret',
+  cookie: {
+    
+  }
 }))
 
 server.use('/api/users', usersRouter)
