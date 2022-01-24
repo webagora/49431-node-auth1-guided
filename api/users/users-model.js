@@ -13,7 +13,7 @@ function find() {
 
 function findBy(filter) { // { username: 'foo' }
   return db('users').where(filter)
-} // returns []
+} // returns [users]
 
 async function add(user) {
   const [id] = await db('users').insert(user)
