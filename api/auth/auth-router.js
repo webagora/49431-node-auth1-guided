@@ -19,6 +19,9 @@ router.post('/register', async (req, res, next) => {
 })
 router.post('/login', async (req, res, next) => {
   try {
+    // pull u/p from req.body
+    // pull the username from the db by that username
+    // { username: 'foo', password: 'xxxxxxxxxxx'}
     res.json('login!!!')
   } catch (err) {
     next(err)
