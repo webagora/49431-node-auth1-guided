@@ -1,27 +1,25 @@
 const router = require('express').Router()
 
-router.verb('/register', async (req, res, next) => {
+router.post('/register', async (req, res, next) => {
   try {
-    
+    res.json('register!!!')
   } catch (err) {
     next(err)
   }
 })
-router.verb('/register', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
   try {
-    
+    res.json('login!!!')
   } catch (err) {
     next(err)
   }
 })
-router.verb('/register', async (req, res, next) => {
+router.get('/register', async (req, res, next) => {
   try {
-    
+    res.json('register!!!')
   } catch (err) {
     next(err)
   }
 })
-
-
 
 module.exports = router
