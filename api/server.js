@@ -13,7 +13,7 @@ server.use(session({
   name: 'monkey',
   secret: process.env.SECRET || 'keep it secret',
   cookie: {
-    
+    max
   }
 }))
 
