@@ -15,8 +15,10 @@ server.use(session({
   cookie: {
     maxAge: 1000 * 60 * 60,
     secure: false, // if true, only works on HTTPS
-    httpOnly: false,
-  }
+    httpOnly: false, // if true, javascript can't read cookie
+  },
+  resave: false,
+  saveUninitialized: false,
 }))
 
 server.use('/api/users', usersRouter)
