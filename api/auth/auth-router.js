@@ -1,8 +1,14 @@
 const router = require('express').Router()
 
-router.verb()
-router.verb()
-router.verb()
+router.verb('/register', async (req, res, next) => {
+  
+})
+router.verb('/register', async (req, res, next) => {
+  
+})
+router.verb('/register', async (req, res, next) => {
+  
+})
 
 
 
