@@ -39,9 +39,9 @@ router.post('/login', async (req, res, next) => {
 })
 router.get('/logout', (req, res, next) => {
   if (req.session.user) {
-
+    req.session.destroy(() => {})
   } else {
-    
+    res.json({ message: `I do not believe we have met?`})
   }
 })
 
