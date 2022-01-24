@@ -6,7 +6,8 @@ router.post('/register', async (req, res, next) => {
   try {
     // pull creds from req.body
     const { username, password } = req.body
-    const hash = bcrypt.hashSync(password, 8)
+    const hash = bcrypt.hashSync(password, 8) // 2 ^ 8
+    console.log(username, pas)
     // hash the password w/ bcrypt
     // store new user in db
     // respond
