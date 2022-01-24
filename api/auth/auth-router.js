@@ -2,6 +2,8 @@ const router = require('express').Router()
 
 router.post('/register', async (req, res, next) => {
   try {
+    // pull creds from req.body
+    // hash the password 
     res.json('register!!!')
   } catch (err) {
     next(err)
