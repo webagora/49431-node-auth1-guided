@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
-const { add } = require('../users/users-model')
+const { add, findBy } = require('../users/users-model')
 const validatePayload = (req, res, next) => { next() }
 
 router.post('/register', validatePayload, async (req, res, next) => {
@@ -19,7 +19,24 @@ router.post('/register', validatePayload, async (req, res, next) => {
     }
 })
 router.post('/login', validatePayload, async (req, res, next) => {
-    res.json('login wired!')
+    try {
+        // pull u/p from req.body
+        const { username, password } = req.body
+        // pull the user from the db by that username
+        const [user] = await findBy({ username })
+    
+        if (user && bcrypt.compareSync(password, user.password)) {
+          // password good, we can initialize a session!
+          console.log(user)
+          res.json({ message: `Good to see you again, ${username}` })
+        } else {
+          next({ status: 401, message: 'Invalid credentials' })
+        }
+        // server recreates hash from req.body.password // xxxxxxxxxxx
+        // server compares 'recreated' against the one in db
+      } catch (err) {
+        next(err)
+      }
 })
 router.get('/logout', validatePayload, async (req, res, next) => {
     res.json('logout wired!')
