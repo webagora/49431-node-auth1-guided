@@ -10,6 +10,8 @@ router.post('/register', async (req, res, next) => {
     const hash = bcrypt.hashSync(password, 8) // 2 ^ 8
     // store new user in db
     const newUser = { username, password: hash }
+    const inserted = await User.add(newUser)
+    res.json({ message: })
     // respond
     res.json('register!!!')
   } catch (err) {
