@@ -23,6 +23,9 @@ server.use(session({
   saveUninitialized: false, // if true, server would always save the session
   store: new Store({
     knex: require('../database/db-config'),
+    tablename: 'sessions',
+    sidfieldname: 'sid',
+    
   })
 }))
 
