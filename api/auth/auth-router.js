@@ -14,9 +14,9 @@ router.post('/login', async (req, res, next) => {
     next(err)
   }
 })
-router.get('/register', async (req, res, next) => {
+router.get('/logout', async (req, res, next) => {
   try {
-    res.json('register!!!')
+    res.json('logout!!!')
   } catch (err) {
     next(err)
   }

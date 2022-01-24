@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 
 const usersRouter = require('./users/users-router.js')
+const authRouter = require('./')
 
 const server = express()
 
