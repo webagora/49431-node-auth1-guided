@@ -27,7 +27,9 @@ router.post('/login', validatePayload, async (req, res, next) => {
     
         if (user && bcrypt.compareSync(password, user.password)) {
           // password good, we can initialize a session!
-          console.log(user)
+          req.session.user = user 
+          //   1- a cookie will be set on the client with a sessionId
+          //   2- the sessionId will also be stored in the server (the session)         
           res.json({ message: `Good to see you again, ${username}` })
         } else {
           next({ status: 401, message: 'Invalid credentials' })
