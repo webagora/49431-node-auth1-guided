@@ -13,7 +13,6 @@ router.post('/register', async (req, res, next) => {
     const inserted = await User.add(newUser)
     // respond
     res.json({ message: `Welcome, ${inserted.username}` })
-    res.json('register!!!')
   } catch (err) {
     next(err)
   }
