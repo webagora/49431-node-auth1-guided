@@ -14,8 +14,8 @@ server.use(session({
   secret: process.env.SECRET || 'keep it secret',
   cookie: {
     maxAge: 1000 * 60 * 60,
-    secure: false,
-    httpOnly: false
+    secure: false, // if true, only works on HTTPS
+    httpOnly: false,
   }
 }))
 
