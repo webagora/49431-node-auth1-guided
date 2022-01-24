@@ -17,6 +17,7 @@ server.use(session({
     secure: false, // if true, only works on HTTPS
     httpOnly: false, // if true, javascript can't read cookie
   },
+  rolling: true,
   resave: false, // ignore it
   saveUninitialized: false, // if true, server would always save the session
 }))
