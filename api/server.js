@@ -10,7 +10,7 @@ const server = express()
 server.use(express.static(path.join(__dirname, '../client')))
 server.use(express.json())
 server.use(session({
-  
+  name: 'monkey'
 }))
 
 server.use('/api/users', usersRouter)
