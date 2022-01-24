@@ -41,11 +41,13 @@ router.get('/logout', (req, res, next) => {
   if (req.session.user) {
     req.session.destroy((err) => {
       if (err) {
+        res.json({ message: `sorry, could you retry` })
+      } else {
         
       }
     })
   } else {
-    res.json({ message: `I do not believe we have met?`})
+    res.json({ message: `I do not believe we have met?` })
   }
 })
 
