@@ -21,6 +21,9 @@ server.use(session({
   rolling: true,
   resave: false, // ignore it
   saveUninitialized: false, // if true, server would always save the session
+  store: new Store({
+    knex: 
+  })
 }))
 
 server.use('/api/users', usersRouter)
