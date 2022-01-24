@@ -22,7 +22,7 @@ server.use(session({
   resave: false, // ignore it
   saveUninitialized: false, // if true, server would always save the session
   store: new Store({
-    knex: 
+    knex: require('../database/db-config'),
   })
 }))
 
