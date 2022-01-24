@@ -13,7 +13,9 @@ server.use(session({
   name: 'monkey',
   secret: process.env.SECRET || 'keep it secret',
   cookie: {
-    max
+    maxAge: 1000 * 60 * 60,
+    secure: false,
+    httpOnly: false
   }
 }))
 
