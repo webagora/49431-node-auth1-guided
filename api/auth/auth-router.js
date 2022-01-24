@@ -37,11 +37,11 @@ router.post('/login', async (req, res, next) => {
     next(err)
   }
 })
-router.get('/logout', async (req, res, next) => {
-  try {
-    res.json('logout!!!')
-  } catch (err) {
-    next(err)
+router.get('/logout', (req, res, next) => {
+  if (req.session.user) {
+
+  } else {
+    
   }
 })
 
