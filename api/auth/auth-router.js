@@ -26,7 +26,9 @@ router.post('/login', async (req, res, next) => {
 
     if (user && bcrypt.compareSync(password, user.password)) {
       // password good, we can initialize a session!
-      res.json({ message: `Good to see you again, ${username}`})
+      res.json({ message: `Good to see you again, ${username}` })
+    } else {
+      next({ status: 401, message: 'Invalid credentials' })
     }
     // server recreates hash from req.body.password // xxxxxxxxxxx
     // server compares 'recreated' against the one in db
