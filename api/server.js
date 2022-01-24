@@ -17,8 +17,8 @@ server.use(session({
     secure: false, // if true, only works on HTTPS
     httpOnly: false, // if true, javascript can't read cookie
   },
-  resave: false,
-  saveUninitialized: false,
+  resave: false, // ignore it
+  saveUninitialized: false, // if true, server would always save the session
 }))
 
 server.use('/api/users', usersRouter)
