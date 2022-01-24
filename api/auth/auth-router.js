@@ -22,8 +22,9 @@ router.post('/login', async (req, res, next) => {
     // pull u/p from req.body
     const { username, password } = req.body
     // pull the user from the db by that username
-    const [user] = await User.findBy({ })
-    // { username: 'foo', password: 'xxxxxxxxxxx' }
+    const [user] = await User.findBy({ username })
+
+    if (user)
     // server recreates hash from req.body.password // xxxxxxxxxxx
     // server compares 'recreated' against the one in db
   } catch (err) {
