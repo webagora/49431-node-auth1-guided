@@ -25,7 +25,8 @@ server.use(session({
     knex: require('../database/db-config'),
     tablename: 'sessions',
     sidfieldname: 'sid',
-    
+    createtable: true,
+    clearInterval: 1000 * 60 * 60,
   })
 }))
 
