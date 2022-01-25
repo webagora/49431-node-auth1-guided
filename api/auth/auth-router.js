@@ -44,7 +44,8 @@ router.get('/logout', validatePayload, async (req, res, next) => {
   if (req.session.user) {
     req.session.destroy((err) => {
       if (err) {
-        
+        // set a new cookie in THE PAST
+        res.set('Set-Cookie', 'monkey=bar')
         res.json({ message: `sorry, could you retry` })
       } else {
         res.json({ message: `bye, it was awesome` })
