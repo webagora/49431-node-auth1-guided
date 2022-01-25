@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const helmet = require('helmet')
 const session = require('express-session')
+const Store = require('connect-session-knex')(session)
 
 const usersRouter = require('./users/users-router.js')
 const authRouter = require('./auth/auth-router')
@@ -21,7 +22,14 @@ server.use(session({
   },
   rolling: true, // push back the expiration date of cookie
   resave: false, // ignore for now
-  saveUninitialized: false // if false, sessions are not stored "by default"
+  saveUninitialized: false, // if false, sessions are not stored "by default"
+  store: new Store({
+    knex: require('../database/db-config'),
+    tablename: 'sessions',
+    sidfieldname: 'sid',
+    createtable: true,
+    clearInterval: 1000 * 60 * 60,
+  })
 }))
 
 server.use('/api/users', usersRouter)
