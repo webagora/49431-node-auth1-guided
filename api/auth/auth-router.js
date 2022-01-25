@@ -41,7 +41,18 @@ router.post('/login', validatePayload, async (req, res, next) => {
       }
 })
 router.get('/logout', validatePayload, async (req, res, next) => {
-    res.json('logout wired!')
+  if (req.session.user) {
+    req.session.destroy((err) => {
+      if (err) {
+        
+        res.json({ message: `sorry, could you retry` })
+      } else {
+        res.json({ message: `bye, it was awesome` })
+      }
+    })
+  } else {
+    res.json({ message: `I do not believe we have met?` })
+  }
 })
 
 
